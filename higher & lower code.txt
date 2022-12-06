@@ -1,0 +1,49 @@
+from art import logo
+from art import vs
+from game_data import data
+import random
+print(logo)
+a = random.choice(data)
+b = f" {a['name']},  { a['description']},  { a['country']}"
+c = a['follower_count']
+print(f"Compare A: {b}")
+print(vs)
+a_1 = random.choice(data)
+b_1 = f" {a_1['name']},  { a_1['description']},  { a_1['country']}"
+c_1 = a_1['follower_count']
+print(f"Against B: {b_1} ")
+play = True
+score = 0
+while play is True:
+    chosen = input("\nWho has more followers? Type 'A' or 'B': ").upper()
+    if chosen == 'A':
+        if c > c_1:
+            score += 1
+            print(logo)
+            print(f"You're right! Current score: {score}")
+            print(f"Compare A: {b}")
+            print(vs)
+            a_1 = random.choice(data)
+            b_1 = f" {a_1['name']},  { a_1['description']},  { a_1['country']}"
+            c_1 = a_1['follower_count']
+            print(f"Against B: {b_1} ")
+        else:
+            print(f"Sorry, that's wrong. Final score: {score}")
+            play = False
+    else:
+        if c <= c_1:
+            score += 1
+            print(logo)
+            print(f"You're right! Current score: {score}")
+            print(f"Compare A: {b_1} ")
+            print(vs)
+            a_3 = random.choice(data)
+            b_3 = f" {a_3['name']},  { a_3['description']},  { a_3['country']}"
+            c_3 = a_3['follower_count']
+            print(f"Against B: {b_3}  ")
+            c = c_1
+            c_1 = c_3
+        else:
+            print(f"Sorry, that's wrong. Final score: {score}")
+            play = False
+          
